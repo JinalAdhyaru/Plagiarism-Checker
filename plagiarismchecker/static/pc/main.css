@@ -1,3 +1,54 @@
-body {
-    background-color: aqua;
+h1{
+    text-align: center;
+}
+.window-1{
+    margin-top: 50px;
+}
+
+.window-2{
+   margin-top: 50px;
+}
+
+.compare-button{
+    text-align: center;
+}
+
+.content-window{
+    
+    border: 1px solid rgb(175, 174, 174);
+    height: 530px;
+    border-radius: 7px;
+}
+
+
+h2{
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgb(175, 174, 174);
+    margin-bottom: 0;
+}
+
+#file-form-1{
+    
+    text-align: center;
+    border: 1px dashed rgb(175, 174, 174);
+    margin: 40px 70px;
+    height: 150px;
+    border-radius: 7px;
+}
+
+#file-form-2{
+    
+    text-align: center;
+    border: 1px dashed rgb(175, 174, 174);
+    margin: 40px 70px;
+    height: 150px;
+    border-radius: 7px;
+
+}
+textarea{
+    margin: 20px 40px;
+    width: 450px;
+    height: 200px;
 }
