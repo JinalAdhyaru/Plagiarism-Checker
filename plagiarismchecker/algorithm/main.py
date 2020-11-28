@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
-# Master script for the plagiarism-checker
-# Coded by: Shashank S Rao
 
 # import other modules
-from webSearch import searchWeb
+from algorithm import webSearch
 
 # import required modules
 import codecs
@@ -37,7 +34,7 @@ def getQueries(text, n):
     return finalq
 
 
-def main(text):
+def findSimilarity(text):
     # n-grams N VALUE SET HERE
     n = 9
     queries = getQueries(text, n)
@@ -53,29 +50,15 @@ def main(text):
     count = len(q)
     if count > 100:
         count = 100
-    for s in q[:100]:
-        output, c = searchWeb(s, output, c)
-        # msg = "\r"+str(i)+"/"+str(count)+"completed..."
+    for s in q[0:100]:
+        output, c = webSearch.searchWeb(s, output, c)
         print('Web search task complete')
+        print(output, c)
         sys.stdout.flush()
         i = i+1
-    # print "\n"
-    # f = open(sys.argv[2],"w")
-    # for ele in sorted(c.iteritems(),key=operator.itemgetter(1),reverse=True):
-    # 	f.write(str(ele[0])+" "+str(ele[1]*100.00))
-    # 	f.write("\n")
-    # f.close()
+    # print "\n
     print(output, c)
     print("\nDone!")
 
-
-# if __name__ == "__main__":
-# 	try:
-# 		main()
-# 	except:
-# 		#writing the error to stdout for better error detection
-# 		error = traceback.format_exc()
-# 		print ("\nUh Oh!\n"+"Plagiarism-Checker encountered an error!:\n"+error)
-
-str = 'n a DFA, for a particular input character, the machine goes to one state only. A transition function is defined on every state for every input symbol. Also in DFA null (or ε) move is not allowed, i.e., DFA cannot change state without any input character. '
-main(str)
+# str = 'Sequential Search: In this, the list or array is traversed sequentially and every element is checked. For example: Linear Search.Interval Search: These algorithms are specifically designed for searching in sorted data-structures. These type of searching algorithms are much more efficient than Linear Search as they repeatedly target the center of the search structure and divide the search space in half.'
+# main(str)
