@@ -22,12 +22,13 @@ def get_cosine(vec1, vec2):
             matchWords[i] = vec1[i]
         # print(i)
     # print(matchWords)
+	
     # calculating numerator
     numerator = sum([vec1[x] * matchWords[x] for x in intersection])
     # print(numerator)
     # calculating denominator
     sum1 = sum([vec1[x]**2 for x in vec1.keys()])
-    sum2 = sum([vec2[x]**2 for x in matchWords.keys()])
+    sum2 = sum([matchWords[x]**2 for x in matchWords.keys()])
     # print(sum1,sum2)
     denominator = math.sqrt(sum1) * math.sqrt(sum2)
     # print(denominator)
@@ -47,7 +48,6 @@ def text_to_vector(text):
     return Counter(words)
 
 # returns cosine similarity of two words
-#uses: text_to_vector(text) and get_cosine(v1,v2)
 
 
 def cosineSim(text1, text2):
@@ -56,6 +56,5 @@ def cosineSim(text1, text2):
     # print('t1 : ',t1, '\nt2 : ', t2)
     vector1 = text_to_vector(t1)
     vector2 = text_to_vector(t2)
-    # print(vector1,vector2)
     cosine = get_cosine(vector1, vector2)
     return cosine
