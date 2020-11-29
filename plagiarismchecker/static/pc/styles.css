@@ -1,0 +1,53 @@
+body{
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: 'Roboto Mono', monospace;
+    
+}
+
+.navbar-nav{
+    margin: auto;  
+    font-size: 20px; 
+    margin-bottom: 5px;
+}
+
+.navbar-nav li :hover{
+    color: #2a9d8f;    
+    border-bottom: 2px solid #2a9d8f;
+}
+
+.nav-two{
+    margin-left: 40px;
+}
+.content-1{
+    margin-top: 10px;
+}
+h1{
+    text-align: center;
+}
+
+.tab-content-1{
+    height: 300px;
+    border: 2px solid rgb(131, 130, 130);
+    border-radius: 4px;
+    padding: 3px;
+}
+.text-content{
+    text-align: center;
+}
+form{
+    padding-top: 20px;
+}
+textarea{
+    width: 90%;
+    height: 170px;
+}
+
+input{
+    border-radius: 2px solid rgb(172, 169, 169);;
+}
+
+button{
+    background-color: #2a9d8f;
+}
