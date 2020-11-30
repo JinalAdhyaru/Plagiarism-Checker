@@ -1,7 +1,13 @@
+# -*- coding: utf-8 -*-
+# Master script for the plagiarism-checker
+# Coded by: Shashank S Rao
 
 # import other modules
+# from algorithm import webSearch
+# import importlib
+# from webSearch import searchWeb
 from algorithm import webSearch
-
+# importlib.module_name('webSearch')
 # import required modules
 import codecs
 import traceback
@@ -26,7 +32,7 @@ def getQueries(text, n):
         l = len(sentence)
         l = int(l/n)
         index = 0
-        for i in range(0, l):
+        for i in range(0, l):		
             finalq.append(sentence[index:index+n])
             index = index + n-1
         if index != len(sentence):
@@ -40,7 +46,6 @@ def findSimilarity(text):
     queries = getQueries(text, n)
     print('GetQueries task complete')
     q = [' '.join(d) for d in queries]
-    found = []
     # using 2 dictionaries: c and output
     # output is used to store the url as key and number of occurences of that url in different searches as value
     # c is used to store url as key and sum of all the cosine similarities of all matches as value
@@ -50,15 +55,23 @@ def findSimilarity(text):
     count = len(q)
     if count > 100:
         count = 100
-    for s in q[0:100]:
+    for s in q[0:count]:
         output, c = webSearch.searchWeb(s, output, c)
         print('Web search task complete')
-        print(output, c)
+        # print(output,c)
         sys.stdout.flush()
         i = i+1
-    # print "\n
-    print(output, c)
+    numqueries = 0
+    for s in q[0:count]:
+        if(len(s) != 0):
+            numqueries = numqueries + 1
+    outputPercent = {}
+    for link in output:
+        percentage = (output[link]*c[link]*100)/numqueries
+        outputPercent[link] = percentage
+    print(outputPercent)
     print("\nDone!")
+    return outputPercent
 
 # str = 'Sequential Search: In this, the list or array is traversed sequentially and every element is checked. For example: Linear Search.Interval Search: These algorithms are specifically designed for searching in sorted data-structures. These type of searching algorithms are much more efficient than Linear Search as they repeatedly target the center of the search structure and divide the search space in half.'
 # main(str)
