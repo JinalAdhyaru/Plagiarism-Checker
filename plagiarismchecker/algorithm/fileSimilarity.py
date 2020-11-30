@@ -67,3 +67,14 @@ def findFileSimilarity(database, inputQuery):
     # print (databaseTF)
     print(matchPercentage)
     return matchPercentage
+
+
+def multipleFile(text, database):
+    max = 0
+    maxSimFile = ''
+    for file in database:
+        sim = findFileSimilarity(text, database[file])
+        if(sim > max):
+            max = sim
+            maxSimFile = file
+    return maxSimFile, max
