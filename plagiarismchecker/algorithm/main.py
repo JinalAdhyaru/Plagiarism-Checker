@@ -1,11 +1,4 @@
-# -*- coding: utf-8 -*-
-# Master script for the plagiarism-checker
-# Coded by: Shashank S Rao
 
-# import other modules
-# from algorithm import webSearch
-# import importlib
-# from webSearch import searchWeb
 from algorithm import webSearch
 # importlib.module_name('webSearch')
 # import required modules
