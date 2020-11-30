@@ -1,4 +1,4 @@
-from algorithm import ConsineSim
+from plagiarismchecker.algorithm import ConsineSim
 from apiclient.discovery import build
 
 searchEngine_API = 'AIzaSyAoEYif8sqEYvj1P6vYLw6CGMrQbDMmaq8'
