@@ -3,4 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    return render(request, 'pc/home.html') 
+    return render(request, 'pc/index.html') 
+
+def fileCompare(request):
+    return render(request, 'pc/doc_compare.html')

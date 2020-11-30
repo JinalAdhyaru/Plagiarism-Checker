@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +18,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
-    <link href="stylesDocCheck.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'pc/stylesDocCheck.css' %}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -28,10 +30,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item nav-one">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'plagiarism-check-mainpage' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item nav-two">
-                    <a class="nav-link" href="doc_compare.html">Compare Documents</a>
+                    <a class="nav-link" href="{% url 'compare' %}">Compare Documents</a>
                 </li>
             </ul>
         </div>
