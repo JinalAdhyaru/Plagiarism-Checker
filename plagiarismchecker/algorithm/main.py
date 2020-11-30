@@ -2,11 +2,15 @@
 # Master script for the plagiarism-checker
 # Coded by: Shashank S Rao
 
+<<<<<<< HEAD
 # import other modules
 # from algorithm import webSearch
 # import importlib
 # from webSearch import searchWeb
 from plagiarismchecker.algorithm import webSearch
+=======
+from algorithm import webSearch
+>>>>>>> 63ab4db46e378830896cdb82213ffd96ad07b30d
 # importlib.module_name('webSearch')
 # import required modules
 import codecs
