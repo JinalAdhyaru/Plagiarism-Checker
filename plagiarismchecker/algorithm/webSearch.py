@@ -1,8 +1,9 @@
-from algorithm import ConsineSim
+from plagiarismchecker.algorithm import ConsineSim
 from apiclient.discovery import build
 
-searchEngine_API = 'AIzaSyAoEYif8sqEYvj1P6vYLw6CGMrQbDMmaq8'
-# searchEngine_API = 'AIzaSyCUYy9AtdMUddiNA0gOcsGPQcE372ytyCw'
+#searchEngine_API = 'AIzaSyAoEYif8sqEYvj1P6vYLw6CGMrQbDMmaq8'
+#searchEngine_API = 'AIzaSyCUYy9AtdMUddiNA0gOcsGPQcE372ytyCw'
+searchEngine_API = 'AIzaSyAQYLRBBeDQNxADPQtUnApntz78-urWEZI'
 searchEngine_Id = '758ad3e78879f0e08'
 
 
@@ -10,8 +11,7 @@ def searchWeb(text, output, c):
     text = text
     # print(text)
     try:
-        resource = build("customsearch", 'v1',
-                         developerKey=searchEngine_API).cse()
+        resource = build("customsearch", 'v1', developerKey=searchEngine_API).cse()
         result = resource.list(q=text, cx=searchEngine_Id).execute()
         searchInfo = result['searchInformation']
         # print(searchInfo)
