@@ -65,11 +65,7 @@
             <form id="form1-ws" action="/test/" method="POST">
               {% csrf_token %}
               <textarea id="text-1" name="q" required></textarea>
-<<<<<<< HEAD
-                </form>
-=======
             </form>
->>>>>>> 2e8782fa3b23d40f5f01504b693263a525620f84
 
           </div>
           
@@ -82,27 +78,25 @@
           </div>
         </div>
       </div>
-
+      <div class="col-md-9">
       <button type="submit" form="form1-ws" id="submit-button-1" class="btn">Run Search</button>
-      <button type="submit" form="form2-ws" id="submit-button-2" class="btn submit-button-2">Run Search</button>    
+      <button type="submit" form="form2-ws" id="submit-button-2" class="btn submit-button-2">Run Search</button>  
+      </div>  
     </div>
 
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6 result-1">
-<<<<<<< HEAD
-      
-=======
+          <h3>Results</h3>
       <ul class="output-list-1">
         {% for links in link %}            
           <li>{{ links }}</li>
         {% endfor %}
       </ul>
->>>>>>> 2e8782fa3b23d40f5f01504b693263a525620f84
       </div>
 
       <div class="col-md-6 result-2" style="text-align: center; align-items: center;">
-        <p class="output-per-tot">{{ percent }}</p>
+        <p class="output-per-tot">{{ percent }}%</p>
         <p>Plagiarized</p>
       </div>
       </div>
