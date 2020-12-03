@@ -1,11 +1,14 @@
 body{
     /* overflow: hidden;
-    overflow-x: hidden; */
-    overflow: hidden;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: scroll; */
     font-family: 'Roboto Mono', monospace;
-    
+}
+
+.navbar-brand {
+    font-family: 'Sansita Swashed', cursive; 
+    font-size: 26px; 
+    margin-right: 40px;
 }
 
 .navbar-nav{
@@ -52,6 +55,10 @@ textarea{
     height: 170px;
 }
 
+#fileupload {
+    margin-bottom: 10px;
+}
+
 #submit-button-1 {
     margin-left: 100px;
     background-color: #2a9d8f; 
@@ -59,10 +66,9 @@ textarea{
 }
 
 #submit-button-2{
-    margin-left: 300px;
+    margin-left: 400px;
     background-color: #2a9d8f; 
-    color: white;
-    
+    color: white;   
 }
 
 #output {

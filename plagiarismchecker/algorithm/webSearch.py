@@ -7,7 +7,6 @@ from apiclient.discovery import build
 searchEngine_API = 'AIzaSyDnSzzr_ApMi9wqT3xOb0cRsckv0VuHN_w     '
 searchEngine_Id = '758ad3e78879f0e08'
 
-
 def searchWeb(text, output, c):
     text = text
     # print(text)
@@ -33,7 +32,6 @@ def searchWeb(text, output, c):
                 if item['link'] in output:
                     itemLink = item['link']
                     break
-
             if itemLink in output:
                 print('if', maxSim)
                 output[itemLink] = output[itemLink] + 1

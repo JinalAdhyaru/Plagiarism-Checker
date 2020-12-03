@@ -1,14 +1,28 @@
 body{
-    overflow: hidden;
-    overflow-x: hidden;
-    font-family: 'Roboto Mono', monospace;
-    
+        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-family: 'Roboto Mono', monospace;
+        height: 100%;    
 }
 
-.navbar-nav{
+.tab-content-1{
+    height: 300px;
+    border: 2px solid rgb(131, 130, 130);
+    border-radius: 4px;
+    padding: 3px;
+    background-color: white;
+}
 
-    font-size: 20px; 
-    
+.navbar-brand {
+    font-family: 'Sansita Swashed', cursive; 
+    font-size: 26px; 
+    margin-right: 40px;
+}
+
+
+.navbar-nav{
+    font-size: 20px;     
 }
 
 .navbar-nav li :hover{
@@ -52,16 +66,36 @@ button{
     background-color: #2a9d8f;
 }
 
+#submit-button-1 {
+    margin-left: 100px;
+    background-color: #2a9d8f; 
+    color: white;
+}
+
+#submit-button-2{
+    margin-left: 200px;
+    background-color: #2a9d8f; 
+    color: white; 
+    visibility: hidden;  
+}
+
 .output-per-tot{
     font-size: 35px;
     color: #264653;
     padding-top: 43px;
+    margin-left: 160px;
+    margin-top: 5px;
+    text-align: center;
     width: 155px;
     height: 155px;
     border: 7px solid #2a9d8f;
     border-radius: 50%
-    
 }
+
+#p1 {
+    margin-left: 180px;
+}
+
 .result-1{
     background-color: #2a9d8f;
 }
