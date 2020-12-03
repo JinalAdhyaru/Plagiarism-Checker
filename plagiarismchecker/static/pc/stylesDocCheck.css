@@ -1,10 +1,5 @@
 body{
-    /* overflow: hidden;
-    overflow-x: hidden; */
-    overflow: hidden;
-    overflow-x: hidden;
     font-family: 'Roboto Mono', monospace;
-    
 }
 
 .navbar-nav{
@@ -50,6 +45,10 @@ textarea{
     height: 170px;
 }
 
+#fileupload {
+    margin-bottom: 10px;
+}
+
 #submit-button-1 {
     margin-left: 100px;
     background-color: #2a9d8f; 
@@ -60,7 +59,6 @@ textarea{
     margin-left: 300px;
     background-color: #2a9d8f; 
     color: white;
-    visibility: hidden;
 }
 
 #output {
