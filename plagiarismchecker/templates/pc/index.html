@@ -18,8 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link href="{% static 'pc/styles.css' %}" rel="stylesheet" type="text/css">
-
-
 </head>
 
 <body>
@@ -43,8 +41,6 @@
   </nav>
 
   <div class="container content-1">
-
-
     <div class="col-md-6 offset-3 text-content">
 
       <p>Choose a file or enter text for web search!</p>
@@ -66,26 +62,23 @@
               {% csrf_token %}
               <textarea id="text-1" name="q" required></textarea>
               <!--<button type="submit" value="Test">-->
-                </form>
+            </form>
 
           </div>
           <div class="tab-pane fade" id="file-input-ws" role="tabpanel" aria-labelledby="file-tab">
 
             <form id="form2-ws" action="/filetest/" enctype="multipart/form-data" method="POST">
-            {% csrf_token %}
-            <input id="id_docfile" required type="file" name="docfile" />
-              </form>
+              {% csrf_token %}
+              <input id="id_docfile" required type="file" name="docfile" />
+            </form>
 
           </div>
-
         </div>
-
       </div>
 
       <button type="submit" form="form1-ws" id="submit-button-1" class="btn" style="background-color: #2a9d8f; color: white;">Run
         Search</button>
 
-      </form>
       <button type="submit" form="form2-ws" id="submit-button-2" class="btn submit-button-2"
         style="background-color: #2a9d8f; color: white; visibility: hidden;">Run Search 2</button>
       <form method="GET">
@@ -95,7 +88,6 @@
       </form>
 
     </div>
-
   </div>
 
 
