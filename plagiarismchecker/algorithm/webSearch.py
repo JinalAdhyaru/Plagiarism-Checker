@@ -1,9 +1,10 @@
 from plagiarismchecker.algorithm import ConsineSim
 from apiclient.discovery import build
 
-#searchEngine_API = 'AIzaSyAoEYif8sqEYvj1P6vYLw6CGMrQbDMmaq8'
-searchEngine_API = 'AIzaSyCUYy9AtdMUddiNA0gOcsGPQcE372ytyCw'
-#searchEngine_API = 'AIzaSyAQYLRBBeDQNxADPQtUnApntz78-urWEZI'
+# searchEngine_API = 'AIzaSyAoEYif8sqEYvj1P6vYLw6CGMrQbDMmaq8'
+# searchEngine_API = 'AIzaSyCUYy9AtdMUddiNA0gOcsGPQcE372ytyCw'
+# searchEngine_API = 'AIzaSyAQYLRBBeDQNxADPQtUnApntz78-urWEZI'
+searchEngine_API = 'AIzaSyDnSzzr_ApMi9wqT3xOb0cRsckv0VuHN_w     '
 searchEngine_Id = '758ad3e78879f0e08'
 
 
@@ -29,6 +30,10 @@ def searchWeb(text, output, c):
                 if simValue > maxSim:
                     maxSim = simValue
                     itemLink = item['link']
+                if item['link'] in output:
+                    itemLink = item['link']
+                    break
+
             if itemLink in output:
                 print('if', maxSim)
                 output[itemLink] = output[itemLink] + 1
@@ -36,11 +41,13 @@ def searchWeb(text, output, c):
                                 (output[itemLink]-1) + maxSim)/(output[itemLink]))
             else:
                 print('else', maxSim)
+                print(text)
+                print(itemLink)
                 output[itemLink] = 1
                 c[itemLink] = maxSim
     except Exception as e:
         print(text)
         print(e)
         print('error')
-        return output, c
-    return output, c
+        return output, c, 1
+    return output, c, 0

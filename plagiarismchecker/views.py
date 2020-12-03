@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from plagiarismchecker.algorithm import main
+from docx import *
+
 from plagiarismchecker.algorithm import fileSimilarity
 #import matplotlib.pyplot as plt
 #from plagiarismchecker.algorithm import main
@@ -13,13 +15,7 @@ def test(request):
     print("request is welcome test")
     print(request.POST['q'])  
     
-    '''value = ''
-    #if !request.POST['q'] :
-    if "txt" in str(request.FILES['docfile']):
-        value = str(request.FILES['docfile'].read())
-    '''
-    if request.POST['q'] != '' : 
-        print("hurray its q")
+    if request.POST['q']: 
         percent,link = main.findSimilarity(request.POST['q'])
         percent = round(percent,2)
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",percent,link)
@@ -28,11 +24,17 @@ def test(request):
 def filetest(request):
     value = ''    
     print(request.FILES['docfile'])
-    if "txt" in str(request.FILES['docfile']):
+    if str(request.FILES['docfile']).endswith(".txt"):
         value = str(request.FILES['docfile'].read())
-    
-    print(value)
-    return render(request, 'pc/index.html')
+
+    elif str(request.FILES['docfile']).endswith(".docx"):
+        document = Document(request.FILES['docfile'])
+        for para in document.paragraphs:
+            value += para.text
+        
+    percent,link = main.findSimilarity(value)
+    print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",percent,link)
+    return render(request, 'pc/index.html',{'link': link, 'percent': percent})
 
 def fileCompare(request):
     return render(request, 'pc/doc_compare.html') 
@@ -58,15 +60,21 @@ def twofiletest1(request):
 def twofilecompare1(request):
     value1 = ''
     value2 = ''
-    print("Submiited files for 1st and 2nd")
-    print(request.FILES['docfile1'])
-    print(request.FILES['docfile2'])
-    if "txt" in str(request.FILES['docfile1']) and "txt" in str(request.FILES['docfile2']):
+    
+    if (str(request.FILES['docfile1'])).endswith(".txt") and (str(request.FILES['docfile2'])).endswith(".txt"):
         value1 = str(request.FILES['docfile1'].read())
         value2 = str(request.FILES['docfile2'].read())
+        
+    elif (str(request.FILES['docfile1'])).endswith(".docx") and (str(request.FILES['docfile2'])).endswith(".docx"):
+        document = Document(request.FILES['docfile1'])
+        for para in document.paragraphs:
+            value1 += para.text
+        document = Document(request.FILES['docfile2'])
+        for para in document.paragraphs:
+            value2 += para.text
+
     result = fileSimilarity.findFileSimilarity(value1,value2)
-    print(value1)
-    print(value2)
+    
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",result)
     return render(request, 'pc/doc_compare.html',{'result': result})
 

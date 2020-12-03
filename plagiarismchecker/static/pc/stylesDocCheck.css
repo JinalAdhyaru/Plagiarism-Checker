@@ -79,3 +79,14 @@ textarea{
     align-items: center;
     margin-left: 100px;
 }
+
+.output-per{
+    font-size: 35px;
+    color: #264653;
+    padding-top: 43px;
+    width: 155px;
+    height: 155px;
+    border: 7px solid #2a9d8f;
+    border-radius: 50%;
+    text-align: center;
+}
