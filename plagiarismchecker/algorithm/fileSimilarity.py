@@ -60,10 +60,6 @@ def findFileSimilarity(database, inputQuery):
     matchPercentage = (float)(
         dotProduct / (queryVectorMagnitude * databaseVectorMagnitude))*100
 
-    # print (queryWordList)
-    # print (databaseWordList)
-    # print (queryTF)
-    # print (databaseTF)
     print(matchPercentage)
     return matchPercentage
 

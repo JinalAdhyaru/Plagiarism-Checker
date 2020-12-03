@@ -1,14 +1,28 @@
 body{
-    overflow: hidden;
-    overflow-x: hidden;
-    font-family: 'Roboto Mono', monospace;
-    
+        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-family: 'Roboto Mono', monospace;
+        height: 100%;    
 }
 
-.navbar-nav{
+.tab-content-1{
+    height: 300px;
+    border: 2px solid rgb(131, 130, 130);
+    border-radius: 4px;
+    padding: 3px;
+    background-color: white;
+}
 
-    font-size: 20px; 
-    
+.navbar-brand {
+    font-family: 'Sansita Swashed', cursive; 
+    font-size: 26px; 
+    margin-right: 40px;
+}
+
+
+.navbar-nav{
+    font-size: 20px;     
 }
 
 .navbar-nav li :hover{
@@ -50,6 +64,19 @@ input{
 
 button{
     background-color: #2a9d8f;
+}
+
+#submit-button-1 {
+    margin-left: 100px;
+    background-color: #2a9d8f; 
+    color: white;
+}
+
+#submit-button-2{
+    margin-left: 200px;
+    background-color: #2a9d8f; 
+    color: white; 
+    visibility: hidden;  
 }
 
 .output-per-tot{

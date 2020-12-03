@@ -21,25 +21,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
     <link href="{% static 'pc/stylesDocCheck.css' %}" rel="stylesheet" type="text/css">
 
-    <style>
-        body {
-            /* overflow: hidden;
-    overflow-x: hidden; */
-            overflow: hidden;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            font-family: 'Roboto Mono', monospace;
-
-        }
-    </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #264653;">
-        <a class="navbar-brand" style="font-family: 'Sansita Swashed', cursive; font-size: 26px; margin-right: 40px;"
-            href="{% url 'plagiarism-check-mainpage' %}">Plagiarism Checker</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="{% url 'plagiarism-check-mainpage' %}">Plagiarism Checker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -58,7 +46,7 @@
     <div class="container content-1">
         <div class="text-content">
 
-            <p>Choose two files to compare!</p>
+            <p>Choose two files to compare or enter contents to compare!</p>
             <div class="row">
                 <div class="col-md-5 tab-content-2">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -99,7 +87,7 @@
             
             <div class="row button-align">
                 <button type="submit" form="form1-ws" id="submit-button-1" class="btn">Compare The Texts</button>
-                <button type="submit" form="form2-ws" id="submit-button-2" class="btn submit-button-2" style="margin-left: 400px;">Compare The Files</button>
+                <button type="submit" form="form2-ws" id="submit-button-2" class="btn submit-button-2">Compare The Files</button>
             </div>
             <ul style="text-align: center;margin-left: 450px;">
                 <li class="output-per" style="list-style:none">{{ result }}%</li>
@@ -120,5 +108,4 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </body>
-
 </html>

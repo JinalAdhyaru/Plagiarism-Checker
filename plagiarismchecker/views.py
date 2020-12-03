@@ -33,6 +33,7 @@ def filetest(request):
             value += para.text
         
     percent,link = main.findSimilarity(value)
+    percent = round(percent,2)
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",percent,link)
     return render(request, 'pc/index.html',{'link': link, 'percent': percent})
 
@@ -48,7 +49,7 @@ def twofiletest1(request):
     if request.POST['q1'] != '' and request.POST['q2'] != '': 
         print("Got both the texts")
         result = fileSimilarity.findFileSimilarity(request.POST['q1'],request.POST['q2'])
-        
+    result = round(result,2)    
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",result)
     return render(request, 'pc/doc_compare.html',{'result': result})
     
@@ -70,7 +71,7 @@ def twofilecompare1(request):
             value2 += para.text
 
     result = fileSimilarity.findFileSimilarity(value1,value2)
-    
+    result = round(result,2)
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",result)
     return render(request, 'pc/doc_compare.html',{'result': result})
 
