@@ -1,6 +1,8 @@
 body{
     /* overflow: hidden;
     overflow-x: hidden; */
+    overflow: hidden;
+    overflow-x: hidden;
     font-family: 'Roboto Mono', monospace;
     
 }
