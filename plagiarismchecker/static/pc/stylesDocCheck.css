@@ -3,11 +3,7 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: 'Roboto Mono', monospace;
-    background: url("/static/images/bg2.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;    
+    
 }
 
 .navbar-nav{
@@ -43,7 +39,6 @@ h1{
     border-radius: 4px;
     padding: 3px;
     margin: auto;
-    background-color: white;
 }
 form{
     padding-top: 20px;

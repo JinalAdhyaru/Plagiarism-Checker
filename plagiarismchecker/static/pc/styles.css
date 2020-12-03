@@ -3,11 +3,7 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: 'Roboto Mono', monospace;
-    background: url("/static/images/bg2.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    
 }
 
 .navbar-nav{
@@ -36,7 +32,6 @@ h1{
     border: 2px solid rgb(131, 130, 130);
     border-radius: 4px;
     padding: 3px;
-    background-color: white;
 }
 .text-content{
     text-align: center;
