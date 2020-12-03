@@ -3,6 +3,7 @@ body{
     overflow-x: hidden; */
     overflow: hidden;
     overflow-x: hidden;
+    overflow-y: scroll;
     font-family: 'Roboto Mono', monospace;
     
 }
@@ -31,6 +32,7 @@ h1{
 .text-content{
     text-align: center;
     margin: auto;
+    align-items: center;
 }
 
 .tab-content-2{
@@ -60,7 +62,7 @@ textarea{
     margin-left: 300px;
     background-color: #2a9d8f; 
     color: white;
-    visibility: hidden;
+    
 }
 
 #output {
@@ -70,4 +72,10 @@ textarea{
 
 #file-input-dc-2 {
     color: black;
+}
+
+.button-align{
+    text-align: center;
+    align-items: center;
+    margin-left: 100px;
 }
