@@ -2,13 +2,17 @@ body{
     overflow: hidden;
     overflow-x: hidden;
     font-family: 'Roboto Mono', monospace;
-    
+    background: url("/static/images/bg2.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .navbar-nav{
-    margin: auto;  
+
     font-size: 20px; 
-    margin-bottom: 5px;
+    
 }
 
 .navbar-nav li :hover{
@@ -19,6 +23,7 @@ body{
 .nav-two{
     margin-left: 40px;
 }
+
 .content-1{
     margin-top: 10px;
 }
@@ -31,6 +36,7 @@ h1{
     border: 2px solid rgb(131, 130, 130);
     border-radius: 4px;
     padding: 3px;
+    background-color: white;
 }
 .text-content{
     text-align: center;

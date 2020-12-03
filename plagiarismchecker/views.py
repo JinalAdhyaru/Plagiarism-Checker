@@ -15,10 +15,9 @@ def test(request):
     if request.POST['q'] != '' : 
         print("hurray its q")
         result = main.findSimilarity(request.POST['q'])
-    
-
+   
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!", result)
-    return render(request, 'pc/index.html',{'result': result})
+    return render(request, 'pc/index.html',{'result': result })
 
 def filetest(request):
     value = ''    
@@ -28,7 +27,7 @@ def filetest(request):
     
     print(value)
     result = main.findSimilarity(value)
-    return render(request, 'pc/index.html',{'result': result})
+    return render(request, 'pc/index.html',{'result' : result})
   
 
 def fileCompare(request):
