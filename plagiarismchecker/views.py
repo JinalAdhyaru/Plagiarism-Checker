@@ -19,10 +19,10 @@ def test(request):
     '''
     if request.POST['q'] != '' : 
         print("hurray its q")
-        result = main.findSimilarity(request.POST['q'])
+        percent,link = main.findSimilarity(request.POST['q'])
     
-    print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!", result)
-    return render(request, 'pc/index.html',{'result': result})
+    print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",percent,link)
+    return render(request, 'pc/index.html',{'link': link, 'percent': percent})
 
 def filetest(request):
     value = ''    
