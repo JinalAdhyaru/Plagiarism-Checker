@@ -20,11 +20,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
     <link href="{% static 'pc/stylesDocCheck.css' %}" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            /* overflow: hidden;
+    overflow-x: hidden; */
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            font-family: 'Roboto Mono', monospace;
+
+        }
+    </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #264653;">
-        <a class="navbar-brand" style="font-family: 'Sansita Swashed', cursive; font-size: 26px; margin-right: 40px;" href="{% url 'plagiarism-check-mainpage' %}">Plagiarism Checker</a>
+        <a class="navbar-brand" style="font-family: 'Sansita Swashed', cursive; font-size: 26px; margin-right: 40px;"
+            href="{% url 'plagiarism-check-mainpage' %}">Plagiarism Checker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,7 +45,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" style="margin-left: 0;">
                 <li class="nav-item nav-one">
-                    <a class="nav-link" href="{% url 'plagiarism-check-mainpage' %}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'plagiarism-check-mainpage' %}">Home <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item nav-two">
                     <a class="nav-link" href="{% url 'compare' %}">Compare Documents</a>
@@ -54,7 +68,8 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="text-input-dc-1" role="tabpanel" aria-labelledby="text-tab-2">
+                        <div class="tab-pane fade show active" id="text-input-dc-1" role="tabpanel"
+                            aria-labelledby="text-tab-2">
                             <form id="form1-ws" action="/twofiletest1/" method="POST">
                                 {% csrf_token %}
                                 <textarea id="text-in-1" name="q1" required></textarea><br>
@@ -74,21 +89,21 @@
                         <div class="tab-pane fade show active" id="file-input-dc-2" role="tabpanel" aria-labelledby="file-tab-3">
                             <form id="form2-ws" action="/twofilecompare1/" enctype="multipart/form-data" method="POST">
                                 {% csrf_token %}
-                                <input type="file" class="fileupload" id="fileupload" name="docfile1" required="True" >
-                                <input type="file" class="fileupload" id="fileupload" name="docfile2" required="True" >
+                                <input type="file" class="fileupload" id="fileupload" name="docfile1" required="True">
+                                <input type="file" class="fileupload" id="fileupload" name="docfile2" required="True">
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="submit" form="form1-ws" id="submit-button-1" class="btn">Compare The Texts</button>
-
-            <button type="submit" form="form2-ws" id="submit-button-2" class="btn submit-button-2">Compare The Files</button>
-
-            <form method="GET">
-                {% csrf_token %}
-                <textarea id="output" name="output" readonly>{{ result }}</textarea>
-            </form>
+            
+            <div class="row button-align">
+                <button type="submit" form="form1-ws" id="submit-button-1" class="btn">Compare The Texts</button>
+                <button type="submit" form="form2-ws" id="submit-button-2" class="btn submit-button-2" style="margin-left: 400px;">Compare The Files</button>
+            </div>
+            <ul style="text-align: center;margin-left: 450px;">
+                <li class="output-per" style="list-style:none">{{ result }}%</li>
+            </ul>
 
         </div>
     </div>

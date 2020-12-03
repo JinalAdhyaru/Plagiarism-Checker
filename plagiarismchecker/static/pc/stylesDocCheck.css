@@ -1,4 +1,9 @@
 body{
+    /* overflow: hidden;
+    overflow-x: hidden; */
+    /* overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll; */
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -26,6 +31,7 @@ h1{
 .text-content{
     text-align: center;
     margin: auto;
+    align-items: center;
 }
 
 .tab-content-2{
@@ -59,6 +65,10 @@ textarea{
     margin-left: 300px;
     background-color: #2a9d8f; 
     color: white;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 0ef4d3e64f7e42f3b395a9ed9add01dd7b06158a
 }
 
 #output {
@@ -68,4 +78,21 @@ textarea{
 
 #file-input-dc-2 {
     color: black;
+}
+
+.button-align{
+    text-align: center;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.output-per{
+    font-size: 35px;
+    color: #264653;
+    padding-top: 43px;
+    width: 155px;
+    height: 155px;
+    border: 7px solid #2a9d8f;
+    border-radius: 50%;
+    text-align: center;
 }
