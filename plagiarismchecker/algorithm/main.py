@@ -30,10 +30,13 @@ def getQueries(text, n):
             for i in range(0, l):
                 finalq.append(sentence[index:index+n])
                 index = index + n-1
+                if index+n > l :
+                    index = l-n-1
             if index != len(sentence):
                 finalq.append(sentence[len(sentence)-index:len(sentence)])
         else:
-            finalq.append(sentence)
+            if l > 4:
+                finalq.append(sentence)
     return finalq
 
 
@@ -46,30 +49,34 @@ def findSimilarity(text):
     output = {}
     c = {}
     i = 1
+    while("" in q):
+        q.remove("")
     count = len(q)
     if count > 100:
         count = 100
+    numqueries = count
     for s in q[0:count]:
-        output, c = webSearch.searchWeb(s, output, c)
+        output, c, errorCount = webSearch.searchWeb(s, output, c)
         print('Web search task complete')
+        numqueries = numqueries - errorCount
         # print(output,c)
         sys.stdout.flush()
         i = i+1
-    numqueries = 0
-    for s in q[0:count]:
-        if(len(s) != 0):
-            numqueries = numqueries + 1
     totalPercent = 0
-    outputLink = []
+    outputLink = {}
+    print(output, c)
+    prevlink = ''
     for link in output:
         percentage = (output[link]*c[link]*100)/numqueries
-        if percentage > 20:
+        if percentage > 10:
             totalPercent = totalPercent + percentage
-            outputLink.append(link)
-
+            prevlink = link
+            outputLink[link] = percentage
+        elif len(prevlink) != 0:
+            totalPercent = totalPercent + percentage
+            outputLink[prevlink] = outputLink[prevlink] + percentage
+              
+    print(count, numqueries)
     print(totalPercent, outputLink)
     print("\nDone!")
     return totalPercent, outputLink
-
-# str = 'Sequential Search: In this, the list or array is traversed sequentially and every element is checked. For example: Linear Search.Interval Search: These algorithms are specifically designed for searching in sorted data-structures. These type of searching algorithms are much more efficient than Linear Search as they repeatedly target the center of the search structure and divide the search space in half.'
-# main(str)

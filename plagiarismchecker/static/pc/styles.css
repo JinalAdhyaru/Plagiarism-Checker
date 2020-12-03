@@ -52,3 +52,19 @@ button{
     background-color: #2a9d8f;
 }
 
+.output-per-tot{
+    font-size: 35px;
+    color: #264653;
+    padding-top: 43px;
+    width: 155px;
+    height: 155px;
+    border: 7px solid #2a9d8f;
+    border-radius: 50%
+    
+}
+.result-1{
+    background-color: #2a9d8f;
+}
+.result-2{
+    background-color: pink;
+}

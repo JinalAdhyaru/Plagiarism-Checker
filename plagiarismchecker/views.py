@@ -17,7 +17,7 @@ def test(request):
     
     if request.POST['q']: 
         percent,link = main.findSimilarity(request.POST['q'])
-    
+        percent = round(percent,2)
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",percent,link)
     return render(request, 'pc/index.html',{'link': link, 'percent': percent})
 
