@@ -2,15 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from plagiarismchecker.algorithm import main
 from docx import *
-
 from plagiarismchecker.algorithm import fileSimilarity
-#import matplotlib.pyplot as plt
-#from plagiarismchecker.algorithm import main
 
 # Create your views here.
+#home
 def home(request):
     return render(request, 'pc/index.html') 
 
+#web search(Text)
 def test(request):
     print("request is welcome test")
     print(request.POST['q'])  
@@ -18,9 +17,10 @@ def test(request):
     if request.POST['q']: 
         percent,link = main.findSimilarity(request.POST['q'])
         percent = round(percent,2)
-    print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",percent,link)
+    print("Output.....................!!!!!!!!",percent,link)
     return render(request, 'pc/index.html',{'link': link, 'percent': percent})
 
+#web search file(.txt, .docx)
 def filetest(request):
     value = ''    
     print(request.FILES['docfile'])
@@ -33,13 +33,14 @@ def filetest(request):
             value += para.text
         
     percent,link = main.findSimilarity(value)
-    print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",percent,link)
+    print("Output...................!!!!!!!!",percent,link)
     return render(request, 'pc/index.html',{'link': link, 'percent': percent})
 
+#text compare
 def fileCompare(request):
     return render(request, 'pc/doc_compare.html') 
 
-#two text compare
+#two text compare(Text)
 def twofiletest1(request):
     print("Submiited text for 1st and 2nd")
     print(request.POST['q1'])
@@ -52,19 +53,15 @@ def twofiletest1(request):
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",result)
     return render(request, 'pc/doc_compare.html',{'result': result})
     
-# def twofiletest2(request):
-#     print("Submiited text for 2nd")
-#     return render(request, 'pc/doc_compare.html')
 
-#two file compare
+#two text compare(.txt, .docx)
 def twofilecompare1(request):
     value1 = ''
     value2 = ''
-    
     if (str(request.FILES['docfile1'])).endswith(".txt") and (str(request.FILES['docfile2'])).endswith(".txt"):
         value1 = str(request.FILES['docfile1'].read())
         value2 = str(request.FILES['docfile2'].read())
-        
+
     elif (str(request.FILES['docfile1'])).endswith(".docx") and (str(request.FILES['docfile2'])).endswith(".docx"):
         document = Document(request.FILES['docfile1'])
         for para in document.paragraphs:
@@ -75,10 +72,5 @@ def twofilecompare1(request):
 
     result = fileSimilarity.findFileSimilarity(value1,value2)
     
-    print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",result)
+    print("Output..................!!!!!!!!",result)
     return render(request, 'pc/doc_compare.html',{'result': result})
-
-# def twofilecompare2(request):
-#     print("Submiited text for 2nd")
-#     return render(request, 'pc/doc_compare.html')    
-    

@@ -10,7 +10,6 @@ WORD = re.compile(r'\w+')
 # input: two vectors
 # output: integer between 0 and 1.
 
-
 def get_cosine(vec1, vec2):
     intersection = set(vec1.keys()) & set(vec2.keys())
 #      print(intersection)
@@ -40,7 +39,6 @@ def get_cosine(vec1, vec2):
 
 # converts given text into a vector
 
-
 def text_to_vector(text):
     # uses the Regular expression above and gets all words
     words = WORD.findall(text)
@@ -48,7 +46,6 @@ def text_to_vector(text):
     return Counter(words)
 
 # returns cosine similarity of two words
-
 
 def cosineSim(text1, text2):
     t1 = text1.lower()
