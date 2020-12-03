@@ -17,6 +17,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
+  
   <link href="{% static 'pc/styles.css' %}" rel="stylesheet" type="text/css">
 
 
@@ -82,7 +83,7 @@
 
       </div>
 
-      <button type="submit" form="form1-ws" id="submit-button-1" class="btn" style="background-color: #2a9d8f; color: white;">Run
+      <button type="submit" form="form1-ws" id="submit-button-1" class="btn" style="background-color: #2a9d8f; color: white;" onclick="pieCh()">Run
         Search</button>
 
       </form>
@@ -96,8 +97,9 @@
 
     </div>
 
-  </div>
+   
 
+  </div>
 
   <script>
     function makeVisible() {
@@ -110,7 +112,7 @@
       document.getElementById("submit-button-1").style.visibility = "visible";
     }
   </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <!-- JQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
