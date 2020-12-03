@@ -13,11 +13,6 @@ def test(request):
     print("request is welcome test")
     print(request.POST['q'])  
     
-    '''value = ''
-    #if !request.POST['q'] :
-    if "txt" in str(request.FILES['docfile']):
-        value = str(request.FILES['docfile'].read())
-    '''
     if request.POST['q'] != '' : 
         print("hurray its q")
         percent,link = main.findSimilarity(request.POST['q'])
@@ -50,10 +45,6 @@ def twofiletest1(request):
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",result)
     return render(request, 'pc/doc_compare.html',{'result': result})
     
-# def twofiletest2(request):
-#     print("Submiited text for 2nd")
-#     return render(request, 'pc/doc_compare.html')
-
 #two file compare
 def twofilecompare1(request):
     value1 = ''
@@ -70,7 +61,4 @@ def twofilecompare1(request):
     print("Output>>>>>>>>>>>>>>>>>>>>!!!!!!!!",result)
     return render(request, 'pc/doc_compare.html',{'result': result})
 
-# def twofilecompare2(request):
-#     print("Submiited text for 2nd")
-#     return render(request, 'pc/doc_compare.html')    
-    
+
