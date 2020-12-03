@@ -11,8 +11,7 @@ def findFileSimilarity(database, inputQuery):
 
     # Replace punctuation by space and split
     queryWordList = re.sub("[^\w]", " ", lowercaseQuery).split()
-    # queryWordList = map(str, queryWordList)					#This was causing divide by zero error
-
+    
     for word in queryWordList:
         if word not in universalSetOfUniqueWords:
             universalSetOfUniqueWords.append(word)

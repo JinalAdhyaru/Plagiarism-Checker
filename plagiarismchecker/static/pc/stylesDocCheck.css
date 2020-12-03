@@ -1,19 +1,12 @@
 body{
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow: hidden;
+    overflow-x: hidden; */
     font-family: 'Roboto Mono', monospace;
-    background: url("/static/images/bg2.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;    
+    
 }
 
 .navbar-nav{
-    margin: auto;  
-    font-size: 20px; 
-    margin-bottom: 5px;
+    font-size: 20px;     
 }
 
 .navbar-nav li :hover{
@@ -28,6 +21,7 @@ body{
 .content-1{
     margin-top: 10px;
 }
+
 h1{
     text-align: center;
 }
@@ -38,13 +32,13 @@ h1{
 }
 
 .tab-content-2{
-    height: 300px;
+    height: 450px;
     border: 2px solid rgb(131, 130, 130);
     border-radius: 4px;
     padding: 3px;
     margin: auto;
-    background-color: white;
 }
+
 form{
     padding-top: 20px;
 }
@@ -52,4 +46,26 @@ form{
 textarea{
     width: 90%;
     height: 170px;
+}
+
+#submit-button-1 {
+    margin-left: 100px;
+    background-color: #2a9d8f; 
+    color: white;
+}
+
+#submit-button-2{
+    margin-left: 300px;
+    background-color: #2a9d8f; 
+    color: white;
+    visibility: hidden;
+}
+
+#output {
+    margin-bottom: 200px;
+    height: 100px;
+}
+
+#file-input-dc-2 {
+    color: black;
 }

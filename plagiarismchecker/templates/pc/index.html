@@ -17,18 +17,39 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
   <link href="{% static 'pc/styles.css' %}" rel="stylesheet" type="text/css">
+
+  <style>
+    body{
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: 'Roboto Mono', monospace;
+    height: 100%;    
+  }
+
+  .tab-content-1{
+    height: 300px;
+    border: 2px solid rgb(131, 130, 130);
+    border-radius: 4px;
+    padding: 3px;
+    background-color: white;
+}
+  </style>
 </head>
 
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #264653;">
+    <a class="navbar-brand" style="font-family: 'Sansita Swashed', cursive; font-size: 26px; margin-right: 40px;" href="{% url 'plagiarism-check-mainpage' %}">Plagiarism Checker</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" style="margin-left: 0;">
         <li class="nav-item nav-one">
           <a class="nav-link" href="{% url 'plagiarism-check-mainpage' %}">Home <span
               class="sr-only">(current)</span></a>
@@ -41,6 +62,8 @@
   </nav>
 
   <div class="container content-1">
+
+
     <div class="col-md-6 offset-3 text-content">
 
       <p>Choose a file or enter text for web search!</p>
@@ -62,34 +85,52 @@
               {% csrf_token %}
               <textarea id="text-1" name="q" required></textarea>
               <!--<button type="submit" value="Test">-->
-            </form>
+                </form>
 
           </div>
           <div class="tab-pane fade" id="file-input-ws" role="tabpanel" aria-labelledby="file-tab">
 
             <form id="form2-ws" action="/filetest/" enctype="multipart/form-data" method="POST">
-              {% csrf_token %}
-              <input id="id_docfile" required type="file" name="docfile" />
-            </form>
+            {% csrf_token %}
+            <input id="id_docfile" required type="file" name="docfile" />
+              </form>
 
           </div>
+
         </div>
+
       </div>
 
-      <button type="submit" form="form1-ws" id="submit-button-1" class="btn" style="background-color: #2a9d8f; color: white;">Run
-        Search</button>
-
+      <button type="submit" form="form1-ws" id="submit-button-1" class="btn" style="background-color: #2a9d8f; color: white;">Run Search</button>
+        
+      
       <button type="submit" form="form2-ws" id="submit-button-2" class="btn submit-button-2"
         style="background-color: #2a9d8f; color: white; visibility: hidden;">Run Search 2</button>
-      <form method="GET">
-        {% csrf_token %}
 
-        <textarea style="margin-bottom: 200px; height: 100px;" id="output" name="output" readonly>{{ result }}</textarea>
-      </form>
 
+       
     </div>
-  </div>
 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+      <ul class="output-list-1">
+        {% for links in link %} 
+           
+          <li>{{ links }}</li>
+        {% endfor %}
+      </ul>
+      </div>
+
+      <div class="col-md-6">
+        <h1>{{ percent }}</h1>
+      </div>
+      </div>
+    </div>
+
+    
+
+  </div>
 
   <script>
     function makeVisible() {
@@ -102,7 +143,7 @@
       document.getElementById("submit-button-1").style.visibility = "visible";
     }
   </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <!-- JQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
