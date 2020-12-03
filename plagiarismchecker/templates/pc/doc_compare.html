@@ -42,6 +42,8 @@
     </nav>
 
     <div class="container content-1">
+        
+
         <div class="text-content">
 
             <p>Choose two files to compare!</p>
@@ -96,15 +98,10 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" form="form1-ws" id="submit-button-1" class="btn" style="background-color: #2a9d8f; color: white;">Run
-                Search</button>
 
-            <form method="GET">
-                {% csrf_token %}
-                <textarea style="margin-bottom: 200px; height: 100px;" id="output" name="output" readonly>{{ result }}</textarea>
-            </form>
-
+            <button type="submit" class="btn" style="background-color: #2a9d8f; color: white;">Run Search</button>
         </div>
+
     </div>
 
 
