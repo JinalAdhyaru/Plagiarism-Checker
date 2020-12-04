@@ -7,7 +7,6 @@ import re
 # Given a text string, remove all non-alphanumeric
 # characters (using Unicode definition of alphanumeric).
 
-
 def getQueries(text, n):
     sentenceEnders = re.compile("['.!?]")
     sentenceList = sentenceEnders.split(text)

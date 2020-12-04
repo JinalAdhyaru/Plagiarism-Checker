@@ -65,7 +65,7 @@
             <form id="form1-ws" action="/test/" method="POST">
               {% csrf_token %}
               <textarea id="text-1" name="q" required></textarea>
-            </form>
+                </form>
 
           </div>
           
@@ -87,12 +87,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6 result-1">
-          <h3>Results</h3>
-      <ul class="output-list-1">
-        {% for links in link %}            
-          <li>{{ links }}</li>
-        {% endfor %}
-      </ul>
+      
       </div>
 
       <div class="col-md-6 result-2" style="text-align: center; align-items: center;">
