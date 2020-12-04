@@ -98,6 +98,10 @@ button{
     margin-left: 180px;
 }
 
+.result-div{
+    margin-bottom: 40px;
+}
+
 .result-1{
     background-color: #acd4d0;
     padding: 15px 10px;
