@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from plagiarismchecker.algorithm import main
 from docx import *
 from plagiarismchecker.algorithm import fileSimilarity
+import PyPDF2 
 
 # Create your views here.
 #home
@@ -31,7 +32,27 @@ def filetest(request):
         document = Document(request.FILES['docfile'])
         for para in document.paragraphs:
             value += para.text
-        
+
+    elif str(request.FILES['docfile']).endswith(".pdf"):
+        # creating a pdf file object 
+        pdfFileObj = open(request.FILES['docfile'], 'rb') 
+
+        # creating a pdf reader object 
+        pdfReader = PyPDF2.PdfFileReader(pdfFileObj) 
+
+        # printing number of pages in pdf file 
+        print(pdfReader.numPages) 
+
+        # creating a page object 
+        pageObj = pdfReader.getPage(0) 
+
+        # extracting text from page 
+        print(pageObj.extractText()) 
+
+        # closing the pdf file object 
+        pdfFileObj.close() 
+
+
     percent,link = main.findSimilarity(value)
     print("Output...................!!!!!!!!",percent,link)
     return render(request, 'pc/index.html',{'link': link, 'percent': percent})

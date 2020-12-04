@@ -7,7 +7,6 @@ import re
 # Given a text string, remove all non-alphanumeric
 # characters (using Unicode definition of alphanumeric).
 
-
 def getQueries(text, n):
     sentenceEnders = re.compile("['.!?]")
     sentenceList = sentenceEnders.split(text)
@@ -30,7 +29,7 @@ def getQueries(text, n):
             for i in range(0, l):
                 finalq.append(sentence[index:index+n])
                 index = index + n-1
-                if index+n > l :
+                if index+n > l:
                     index = l-n-1
             if index != len(sentence):
                 finalq.append(sentence[len(sentence)-index:len(sentence)])
@@ -75,7 +74,10 @@ def findSimilarity(text):
         elif len(prevlink) != 0:
             totalPercent = totalPercent + percentage
             outputLink[prevlink] = outputLink[prevlink] + percentage
-              
+        elif c[link] == 1:
+            totalPercent = totalPercent + percentage
+        print(link, totalPercent)
+
     print(count, numqueries)
     print(totalPercent, outputLink)
     print("\nDone!")
