@@ -3,6 +3,7 @@ body{
     overflow-x: hidden;
     overflow-y: scroll; */
     font-family: 'Roboto Mono', monospace;
+    background-color: rgb(227, 242, 255);
 }
 
 .navbar-brand {
@@ -44,6 +45,7 @@ h1{
     border-radius: 4px;
     padding: 3px;
     margin: auto;
+    background-color: white;
 }
 
 form{
