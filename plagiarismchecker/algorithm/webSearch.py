@@ -4,7 +4,7 @@ from apiclient.discovery import build
 # searchEngine_API = 'AIzaSyAoEYif8sqEYvj1P6vYLw6CGMrQbDMmaq8'
 # searchEngine_API = 'AIzaSyCUYy9AtdMUddiNA0gOcsGPQcE372ytyCw'
 # searchEngine_API = 'AIzaSyAQYLRBBeDQNxADPQtUnApntz78-urWEZI'
-searchEngine_API = 'AIzaSyDnSzzr_ApMi9wqT3xOb0cRsckv0VuHN_w     '
+searchEngine_API = 'AIzaSyCAeR7_6TTKzoJmSwmOuHZvKcVg_lhqvCc'
 searchEngine_Id = '758ad3e78879f0e08'
 
 def searchWeb(text, output, c):
@@ -19,7 +19,7 @@ def searchWeb(text, output, c):
         if(int(searchInfo['totalResults']) > 0):
             maxSim = 0
             itemLink = ''
-            numList = len(result['items'])
+            numList = len(result['items']) 
             if numList >= 5:
                 numList = 5
             for i in range(0, numList):
